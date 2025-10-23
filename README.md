@@ -127,4 +127,7 @@
   Função auxiliar que retorna a conta associada a um cliente, utilizada nas operações financeiras como depósito, saque e transferência.
 
 ---
-## 
+## Código
+```python
+
+```
