@@ -657,10 +657,147 @@ def verificar_conta():
 
 
 ```python
+def menu_cliente(cliente):
+    os.system("cls")
+    while True:
+        try:
+            print(f"\n=== MENU CLIENTE ({cliente.getNome()}) ===")
+            print("1 - Depósito") # deposito
+            print("2 - Saque") # saque
+            print("3 - Transferência") # transferencia
+            print("4 - Extrato") # extrato
+            print("5 - Voltar") # volta ao anterior
+            escolha = input("--> ")
+            match escolha:
+                case "1":
+                    deposito(cliente)
+                case "2":
+                    saque(cliente)
+                case "3": # menu para trasferencias bancarias
+                    transferencia(cliente)
+                case "4":
+                    consulta_extrato(cliente)
+                case "5":
+                    return gerente_cliente()
+                case _:
+                    print("Opção inválida.")
+                    os.system("pause")
+        
+        except Exception as e:
+            print(f"Houve um erro {e}")
+            os.system("pause")
+
+
+def getContaCliente(cliente):
+    os.system("cls")
+    for c in contas:
+        if c.getCliente() == cliente:
+            return c # procura de clientes
+    print("Nenhuma conta foi encontrada")
+    return None
+
+
+def deposito(cliente):
+    os.system("cls")
+    conta = getContaCliente(cliente)
+    if conta:
+        try:
+            valor = float(input("Digite o valor\n--->"))
+            conta.depositar(valor) # depos
+            print(f"Depósito realizado com sucesso!\nSaldo: R${conta.getSaldo():.2f}")
+            os.system("pause")
+
+        except ValueError:
+            print("Valor inválido.")
+            os.system("pause")
+    else:
+        print("Essa conta não está ativa!")
+        os.system("pause")
+
+
+def saque(cliente):
+    os.system("cls")
+    conta = getContaCliente(cliente)
+    if conta:        
+        try: 
+            valor = float(input("Digite o valor\n--->"))
+            conta.sacar(valor)
+            print(f"Saldo atual: R${conta.getSaldo():.2f}")
+            os.system("pause")
+            
+        except ValueError:
+            print("Valor inválido.")
+            os.system("pause")
+
+    else:
+        print("Essa conta não está ativa!")
+        os.system("pause")
+
+
+def transferencia(cliente):
+    os.system("cls")
+    conta_origem = getContaCliente(cliente)
+    if not conta_origem:
+        print("Não há nenhuma conta ativa!")
+        os.system("pause")
+        return
+
+    cpf_destino = input("Digite o CPF do destinatário (somente números): ")
+    if not cpf_destino.isdigit():
+        print("CPF inválido! Digite apenas números.")
+        os.system("pause")
+        return
+
+    conta_destino = None
+    for c_d in contas:
+        if c_d.getCliente().getCpf() == cpf_destino:
+            conta_destino = c_d
+            break
+
+    if not conta_destino:
+        print("Destino não encontrado.")
+        os.system("pause")
+        return
+
+    try:
+        valor = float(input("Digite o valor da transferência:\n---> "))
+        if valor <= 0:
+            print("Valor inválido. Deve ser maior que zero.")
+            os.system("pause")
+            return
+
+        conta_origem.transferir(valor, conta_destino)
+        print("Transferência realizada com sucesso!")
+        os.system("pause")
+
+    except ValueError:
+        print("Valor inválido.")
+        os.system("pause")
+
+
+def consulta_extrato(cliente):
+    os.system("cls")
+    conta = getContaCliente(cliente)
+    if conta:
+        print("\n--- EXTRATO ---")
+        for extrato in conta.getExtrato():
+            print(extrato)
+        print(f"Saldo atual: R${conta.getSaldo():.2f}")
+        os.system("pause")
 
 ```
 
 
 <p></p>
+
+```python
+from funcoes import gerente_cliente
+
+print("=== SEJA BEM-VINDO AO BANCO ===")
+gerente_cliente()
+```
+
+<p>Inicialização do código, importando as funções</p>
+
 
 https://miro.com/app/board/uXjVJ3dcNDI=/
