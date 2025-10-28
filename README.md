@@ -816,4 +816,4 @@ gerente_cliente()
 <p>Inicialização do código, importando as funções</p>
 
 
-https://miro.com/app/board/uXjVJ3dcNDI=/
+<a href="https://miro.com/app/board/uXjVJ3dcNDI=/">Link diagrama de classes</a>
