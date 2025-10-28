@@ -584,8 +584,83 @@ def criar_conta(cliente):
 
 
 ```python
+def listar_clientes():
+    os.system("cls")
+    if not clientes: # caso não houver nada em clientes
+        print("Nenhum cliente cadastrado.")
+        os.system("pause")
+        return
+    for c in clientes: # lista de clientes
+        print(f"{c.getId()} - {c.getNome()} - {c.getCpf()} - {c.getGenero()}")
+    os.system("pause")
+```
+
+
+<p>Lista os clientes</p>
+
+
+
+```python
+def excluir_cliente():
+    os.system("cls")
+    nome = input("Nome do cliente a excluir: ")
+    for c in clientes: # exclusão de clientes
+        if c.getNome() == nome:
+            clientes.remove(c)
+            print("Cliente removido.") # cliente removido
+            os.system("pause")
+            return
+    print("Cliente não encontrado.")
+    os.system("pause")
+```
+
+
+<p>Excluir clientes</p>
+
+
+
+```python
+
+def listar_contas():
+    os.system("cls")
+    if not contas: # lista de clientes
+        print("Nenhuma conta cadastrada.")
+        os.system("pause")
+        return
+    for c in contas: # lista de contas
+        print(f"ID {c.getID()} - Cliente: {c.getCliente().getNome()} - Saldo: R${c.getSaldo():.2f}")
+```
+
+
+<p>Listar as contas</p>
+
+
+```python
+def verificar_conta():
+    os.system("cls")
+    try:
+        num = int(input("ID da conta: "))
+        for c in contas:
+            if c.getID() == num: # verifica se a conta esta  ativa
+                print(f"Conta ativa: {c.getAtiva()} - Saldo: R${c.getSaldo():.2f}")
+                return # caso esteja ativa, lista das contas com |ativa e saldo|
+        print("Conta não encontrada.")
+        os.system("pause")
+        
+    except Exception as e:
+        print(f"Houve um erro {e}")
+        os.system("pause")
+```
+
+
+<p>Verifica se a conta esta ativa ou não.</p>
+
+
+```python
 
 ```
 
 
 <p></p>
+
+https://miro.com/app/board/uXjVJ3dcNDI=/
