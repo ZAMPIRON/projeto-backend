@@ -802,8 +802,7 @@ def consulta_extrato(cliente):
 
 <p>Nesta ultima função, vemos o extrato, com o mesmo procedimento,  caso a conta estiver desativada, ira aparecer um erro, senão ira mostrar o extrato do cliente (caso houver).</p>
 
-
-
+---
 ## app.py
 
 ```python
@@ -815,5 +814,6 @@ gerente_cliente()
 
 <p>Inicialização do código, importando as funções</p>
 
-
+---
+# Diagrama de classes
 <a href="https://miro.com/app/board/uXjVJ3dcNDI=/">Link diagrama de classes</a>
