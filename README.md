@@ -695,8 +695,11 @@ def getContaCliente(cliente):
             return c # procura de clientes
     print("Nenhuma conta foi encontrada")
     return None
+```
+<p>Menu para o cliebte escolher se vai depositar, sacar dinheiro,  tranferir dinheiro ou ver seu extrato. </p>
 
 
+```python
 def deposito(cliente):
     os.system("cls")
     conta = getContaCliente(cliente)
@@ -713,8 +716,11 @@ def deposito(cliente):
     else:
         print("Essa conta não está ativa!")
         os.system("pause")
+```
+<p>Primeiro esta função verifica se a conta esta ativa, caso estiver, o cliente deposita um valor.</p>
 
 
+```python 
 def saque(cliente):
     os.system("cls")
     conta = getContaCliente(cliente)
@@ -732,8 +738,11 @@ def saque(cliente):
     else:
         print("Essa conta não está ativa!")
         os.system("pause")
+```
+<p>Primeiro esta função verifica se a conta esta ativa, caso estiver, o cliente vai escolher um valor para sacar.</p>
 
 
+```python
 def transferencia(cliente):
     os.system("cls")
     conta_origem = getContaCliente(cliente)
@@ -773,8 +782,11 @@ def transferencia(cliente):
     except ValueError:
         print("Valor inválido.")
         os.system("pause")
+```
+<p>Nesta função será feito uma transferência,  logo precisa de um conta origem e um destino, caso uma das contas nãoestiver ativa, haveráum erro, se não o usuário precisa digitar o cpf para que ache a conta destinada, para trasferir o valor</p>
 
 
+```python 
 def consulta_extrato(cliente):
     os.system("cls")
     conta = getContaCliente(cliente)
@@ -788,7 +800,11 @@ def consulta_extrato(cliente):
 ```
 
 
-<p></p>
+<p>Nesta ultima função, vemos o extrato, com o mesmo procedimento,  caso a conta estiver desativada, ira aparecer um erro, senão ira mostrar o extrato do cliente (caso houver).</p>
+
+
+
+## app.py
 
 ```python
 from funcoes import gerente_cliente
