@@ -128,6 +128,9 @@
 
 ---
 ## Explicação do código
+
+### classes.py
+
 ```python
 from abc import ABC, abstractmethod
 
@@ -150,8 +153,35 @@ class Banco: # criação da classe - Banco
     def getClientes(self): 
         return self.__clientes 
 ```
-## Explicação
+
 <p> - Primeiro, importamos o abstract method, após isso, criamos a classe Banco, com os atributos de nome (nome do banco), localização (localização do banco), cnpj (cnpj do banco)
  e uma lista com os clientes neste banco</p>
 <p> - Posteriormente, criamos os get´s, (getNome, getLocalizacao, getCnpj e getClientes), metodos get´s que retornam o nome do banco, a sua localização, seu CNPJ e seus clientes</p>
 
+```python
+class Cliente:
+    def __init__(self, id_: int, nome: str, idade: int, cpf: str, genero: str): 
+        self.__id = id_ 
+        self.__nome = nome 
+        self.__idade = idade
+        self.__cpf = cpf 
+        self.__genero = genero 
+
+    def getId(self): 
+        return self.__id  
+
+    def getNome(self): 
+        return self.__nome 
+
+    def getIdade(self):
+        return self.__idade 
+
+    def getCpf(self): 
+        return self.__cpf 
+
+    def getGenero(self): 
+        return self.__genero 
+```
+
+<p> - Neste bloco criamos a classe Cliente, com os atributos como, id (ID do cliente), nome (nome do cliente), idade (idade do cliente), cpf (cpf do cliente) e genero (genero do cliente).</p>
+<p> - Posteriormente, criamos os get´s, (getId, getNome, getIdade, getCpf e getGenero), metodos get´s que retornam o ID do cliente, nome do cliente, a sua localização, seu CNPJ e seu gênero.</p>
