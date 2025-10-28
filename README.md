@@ -127,7 +127,31 @@
   Função auxiliar que retorna a conta associada a um cliente, utilizada nas operações financeiras como depósito, saque e transferência.
 
 ---
-## Código
+## Explicação do código
 ```python
+from abc import ABC, abstractmethod
 
+class Banco: # criação da classe - Banco
+    def __init__(self, nome: str, localizacao: str, cnpj: int): 
+        self.__nome = nome 
+        self.__localizacao = localizacao 
+        self.__cnpj = cnpj 
+        self.__clientes = []
+
+    def getNome(self): 
+        return self.__nome
+
+    def getLocalizacao(self): 
+        return self.__localizacao
+
+    def getCnpj(self): 
+        return self.__cnpj
+
+    def getClientes(self): 
+        return self.__clientes 
 ```
+## Explicação
+<p> - Primeiro, importamos o abstract method, após isso, criamos a classe Banco, com os atributos de nome (nome do banco), localização (localização do banco), cnpj (cnpj do banco)
+ e uma lista com os clientes neste banco</p>
+<p> - Posteriormente, criamos os get´s, (getNome, getLocalizacao, getCnpj e getClientes), metodos get´s que retornam o nome do banco, a sua localização, seu CNPJ e seus clientes</p>
+
